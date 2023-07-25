@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "AlenbiSans";
+    src: url("./fonts/AlenbiSans-Black.woff");
+    font-weight: 700;
+  }
+  
+  @font-face {
+    font-family: "AlenbiSans";
+    src: url("./fonts/AlenbiSans-Bold.woff");
+    font-weight: 600;
+  }
+  
+  @font-face {
+    font-family: "AlenbiSans";
+    src: url("./fonts/AlenbiSans-Regular.woff");
+    font-weight: 500;
+  }
+  
+  @font-face {
+    font-family: "AlenbiSans";
+    src: url("./fonts/AlenbiSans-Light.woff");
+    font-weight: 300;
+  }

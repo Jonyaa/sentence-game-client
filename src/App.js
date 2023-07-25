@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import "./fonts/AlenbiSans-Black.woff";
+import "./fonts/AlenbiSans-Bold.woff";
+import "./fonts/AlenbiSans-Regular.woff";
+import "./fonts/AlenbiSans-Light.woff";
+
+import "./App.css";
+
+import Landing from "./pages/landing/Landing";
+import Admin from "./pages/admin/Admin";
+import Game from "./pages/game/Game";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Landing />} />
+          <Route path="admin" element={<Admin />} />
+          <Route path="game" element={<Game />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
