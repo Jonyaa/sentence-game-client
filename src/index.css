@@ -3,11 +3,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  background: var(--clr-light);
+
   font-family: 'AlenbiSans', 'system-os', sans-serif;
   font-size: 100%;
 }
 
-input {
+h1, h2, h5, p, input {
   color: var(--clr-dark);
 }
 
@@ -16,12 +18,22 @@ h1 {
   font-weight: 700;
   margin: 0;
   margin-bottom: .3em;
-  color: var(--clr-dark);
+}
+
+h2 {
+  font-size: 3em;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: .2em;
 }
 
 h5 {
   font-size: 2em;
   font-weight: 600;
   margin: 0;
-  color: var(--clr-dark);
+}
+
+p {
+  font-size: 1.3em;
+  margin: 0;
 }

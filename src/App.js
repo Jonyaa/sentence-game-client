@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/">
-          <Route index element={<Landing />} />
+          <Route index element={<Game />} />
           <Route path="admin" element={<Admin />} />
           <Route path="game" element={<Game />} />
         </Route>

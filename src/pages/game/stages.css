@@ -1,0 +1,80 @@
+.game-stage.input form {
+    width: 70%;
+    display: flex;
+    flex-flow: column;
+}
+
+.game-stage.input form textarea {
+    width: auto;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    box-sizing: border-box;
+    background: white;
+    font-family: 'AlenbiSans';
+    font-weight: 300;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.game-stage.myturn * {
+   width: 70%; 
+}
+
+.game-stage.myturn .writer {
+    margin-bottom: 12px;
+}
+
+.game-stage.notmyturn * {
+    width: 70%;
+}
+
+.game-stage.notmyturn h5 {
+    margin: 8px 0;
+}
+
+.game-stage.endround {
+    padding: 60px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.game-stage.endround .subtitle {
+    color: white;
+}
+
+.game-stage.endround .sentence-list {
+    margin-top: 20px;
+}
+
+.game-stage.endround .sentence-list .sentence {
+    margin-bottom: 20px;
+}
+
+.game-stage.endround .sentence h5 {
+    margin-bottom: 8px;
+}
+
+.game-stage.endgame {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 60px;
+}
+
+.game-stage.endgame .sentence-list {
+    margin-top: 20px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.game-stage.endgame ul {
+    padding-right: 0;
+}
+
+.game-stage.endgame li {
+    list-style: none;
+    margin-bottom: 8px;
+    color: var(--clr-dark);
+    font-size: 1.2em;
+}
