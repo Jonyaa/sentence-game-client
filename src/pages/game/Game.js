@@ -15,10 +15,26 @@ const dummyData = {
   "של סילברסטיין": ["ביצה בקן", "שדגכסבה"],
 };
 
-function StageController({ children }) {
+
+function StageController({ stage, data, onInputSubmit, onFinishTurn }) {
   return (
     <>
-      <EndGameStage data={dummyData} />
+      {(() => {
+        switch (stage) {
+          case 'input':
+            return <InputStage onSubmit={onInputSubmit} />
+          case 'myTurn':
+            return <MyTurnStage data={data} onFinishTurn={onFinishTurn} />
+          case 'notMyTurn':
+            return <NotMyTurnStage data={data} />
+          case 'endRound':
+            return <EndRoundStage />
+          case 'engGame':
+            return <EndGameStage />
+          default:
+            return null
+        }
+      })()}
     </>
   );
 }
@@ -32,9 +48,17 @@ function GameStage({ stageName, active, children }) {
 }
 
 function Game() {
+  const onInputSubmit = data => console.log(data);
+  const onFinishTurn = () => console.log('nextTurn');
+
   return (
-    <Page name="game">
-      <StageController />
+    
+    <Page name="game">  
+       <StageController
+        stage='input'
+        data={{ currentReader: 'אמיר', currentWriter: 'שפר' }}
+        onInputSubmit={onInputSubmit}
+        onFinishTurn={onFinishTurn} /> 
     </Page>
   );
 }
