@@ -9,16 +9,16 @@ import "./App.css";
 
 import Landing from "./pages/landing/Landing";
 import Admin from "./pages/admin/Admin";
-import Game from "./pages/game/Game";
+import Room from "./pages/room/Room";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/">
-          <Route index element={<Game />} />
+          <Route index element={<Landing />} />
           <Route path="admin" element={<Admin />} />
-          <Route path="game" element={<Game />} />
+          <Route path="room" element={<Room />} />
         </Route>
       </Routes>
     </BrowserRouter>
