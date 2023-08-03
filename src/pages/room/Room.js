@@ -4,29 +4,16 @@ import { useNavigate } from "react-router-dom";
 
 import Game from "../game/Game";
 import Lobby from "../lobby/Lobby";
-import Cookies from "js-cookie";
-
-const dummyPlayers = [{
-  id: 0,
-  name: 'עומרי סגל 69',
-}, {
-  id: 1,
-  name: 'משה פריץ',
-}, {
-  id: 2,
-  name: 'מעיין אבן',
-}]
+import CountdownAlert from "../../components/CountdownAlert";
 
 export default function Room() {
   const [isConnected, setIsConnected] = useState(socket.connected);
-  const [gameStarted, setGameStarted] = useState(false);
   const [players, setPlayers] = useState([]);
+  const [countdown, setCountdown] = useState(0)
+  const [inputStarted, setInputStarted] = useState(false);
+  const [gameStarted, setGameStarted] = useState(false);
 
-
-  let navigate = useNavigate();
-  const routeChange = (path) => {
-    navigate(path);
-  }
+  const navigate = useNavigate();
 
   useEffect(() => {
     socket.connect();
@@ -44,12 +31,19 @@ export default function Room() {
     }
 
     function onRedirect(path) {
-      routeChange(path)
+      navigate(path);
+    }
+
+    function onStartInput(time) {
+      setCountdown(time);
     }
 
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
     socket.on('players_update', onPlayersUpdate)
+    //Currently starting input soon functions as start input
+    //need to change in server..
+    socket.on('starting input soon', onStartInput)
     socket.on('redirect', onRedirect)
 
     return () => {
@@ -57,12 +51,14 @@ export default function Room() {
       socket.off('connect', onConnect);
       socket.off('disconnect', onDisconnect);
       socket.off('players_update', onPlayersUpdate)
+      socket.on('starting input soon', onStartInput)
     };
   }, []);
 
   return (
     <>
-      {gameStarted ? <Game /> : <Lobby players={players} />}
+      {countdown && <CountdownAlert time={countdown} finish={() => { setCountdown(false); setInputStarted(true) }} />}
+      {inputStarted ? <Game /> : <Lobby players={players} />}
     </>
   );
-}
+} 
