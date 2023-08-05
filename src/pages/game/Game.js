@@ -10,19 +10,6 @@ import {
   EndGameStage,
 } from "./stages.js";
 
-const dummyData = {
-  "בון רותי": ["חביתה ומקושקשת", "שדגכשדגכשדגכ"],
-  "של סילברסטיין": ["ביצה בקן", "שדגכסבה"],
-};
-
-
-function StageController({ stage, data, onInputSubmit, onFinishTurn }) {
-  return (
-    <>
-    </>
-  );
-}
-
 function GameStage({ stageName, active, children }) {
   return (
     <div className={`game-stage ${stageName} ${active ? "active" : ""}`}>
@@ -49,7 +36,7 @@ function Game({ inputSubmit, finishTurn, data, stage, uid }) {
           case 'endRound':
             return <EndRoundStage />
           case 'engGame':
-            return <EndGameStage />
+            return <EndGameStage data={data}/>
           default:
             return null
         }
