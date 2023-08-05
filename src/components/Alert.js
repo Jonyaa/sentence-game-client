@@ -10,7 +10,7 @@ export default function Alert({ message, timeout, slideIn = false, finish }) {
     }, [])
 
     return (
-        <div className="alert">
+        <div className="alert" dir="rtl">
             <h2 className={slideIn ? 'slide-in': ''}>{ message }</h2>
         </div>
     )

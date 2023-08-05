@@ -1,19 +1,18 @@
 import "./Landing.css";
 
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useAlert } from "../../hooks/useAlert";
 
 import Page from "../page/Page";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import PinInput from "../../components/PinInput";
-import Alert from "../../components/Alert";
 
 
 
 function Landing() {
   const navigate = useNavigate();
-  const [alert, setAlert] = useState(false);
+  const [AlertComponent, setAlert, resetAlert] = useAlert();
 
   const handleConnection = async (e) => {
     e.preventDefault();
@@ -22,20 +21,21 @@ function Landing() {
       method: "POST",
       body: formData,
       credentials: 'include',
-      // redirect: 'follow',
     })
 
-    if (response.status === 200) {
-      navigate('/room');
-    }
-    else if (response.status === 400) {
-      setAlert(true);
-    }
+    response.status === 200 ? navigate('/room') :
+      response.status === 400 ? setAlert({
+        active: true,
+        message: "יא פיתה בשמנת אין חדר כזה 😂😂😂",
+        timeout: 1500,
+        onFinish: () => null,
+      }) :
+        console.log(response.status);
   }
 
   return (
     <Page name="landing">
-      {alert && <Alert message={'יא פיתה בשמנת אין חדר כזה 😂😂😂'} timeout={2000} finish={() => setAlert(false)} slideIn/>}
+      <AlertComponent />
       <h1>משחק המשפטים</h1>
       <form method="post" onSubmit={handleConnection}>
         <PinInput name="pin" type="number" label="צ׳ילבוטק" required />

@@ -19,22 +19,6 @@ const dummyData = {
 function StageController({ stage, data, onInputSubmit, onFinishTurn }) {
   return (
     <>
-      {(() => {
-        switch (stage) {
-          case 'input':
-            return <InputStage onSubmit={onInputSubmit} />
-          case 'myTurn':
-            return <MyTurnStage data={data} onFinishTurn={onFinishTurn} />
-          case 'notMyTurn':
-            return <NotMyTurnStage data={data} />
-          case 'endRound':
-            return <EndRoundStage />
-          case 'engGame':
-            return <EndGameStage />
-          default:
-            return null
-        }
-      })()}
     </>
   );
 }
@@ -47,18 +31,29 @@ function GameStage({ stageName, active, children }) {
   );
 }
 
-function Game() {
-  const onInputSubmit = data => console.log(data);
-  const onFinishTurn = () => console.log('nextTurn');
+function Game({ inputSubmit, finishTurn, data, stage, uid }) {  
+  const turn = parseInt(stage);
+  const calcTurn = () => data[turn].player === uid ? 'myTurn' : 'notMyTurn';
+  stage = !isNaN(turn) ? calcTurn() : stage;
 
   return (
-    
-    <Page name="game">  
-       <StageController
-        stage='input'
-        data={{ currentReader: 'אמיר', currentWriter: 'שפר' }}
-        onInputSubmit={onInputSubmit}
-        onFinishTurn={onFinishTurn} /> 
+    <Page name="game">
+      {(() => {
+        switch (stage) {
+          case 'input':
+            return <InputStage inputSubmit={inputSubmit} />
+          case 'myTurn':
+            return <MyTurnStage data={{ currentWriter: data[turn].text.writer, text: data[turn].text.body }} finishTurn={finishTurn} />
+          case 'notMyTurn':
+            return <NotMyTurnStage data={{ currentReader: data[turn].player, currentWriter: data[turn].text.writer }} />
+          case 'endRound':
+            return <EndRoundStage />
+          case 'engGame':
+            return <EndGameStage />
+          default:
+            return null
+        }
+      })()}
     </Page>
   );
 }

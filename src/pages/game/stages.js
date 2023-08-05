@@ -5,20 +5,20 @@ import Button from "../../components/Button";
 // eslint-disable-next-line
 import Game, { GameStage } from "./Game";
 
-function InputStage({ onSubmit }) {
+function InputStage({ inputSubmit }) {
   const [sentence, setSentence] = useState('');
   return (
     <GameStage stageName="input">
       <h2>הכנס משפט</h2>
       <form >
         <textarea rows={10} onChange={(e) => {setSentence(e.target.value)}}></textarea>
-        <Button onClick={() => onSubmit(sentence)} type='button'>סיימת.י</Button>
+        <Button onClick={() => inputSubmit(sentence)} type='button'>סיימת.י</Button>
       </form>
     </GameStage>
   );
 }
 
-function MyTurnStage({ data, onFinishTurn }) {
+function MyTurnStage({ data, finishTurn }) {
   // data: {currentWriter: str, text: str}
 
   return (
@@ -26,7 +26,7 @@ function MyTurnStage({ data, onFinishTurn }) {
       <h5 className="writer">כותב: {data.currentWriter}</h5>
       <h2>טקסט להקראה:</h2>
       <h5>"{data.text}"</h5>
-      <Button onClick={onFinishTurn}>סיימת.י</Button>
+      <Button onClick={finishTurn}>סיימת.י</Button>
     </GameStage>
   );
 }

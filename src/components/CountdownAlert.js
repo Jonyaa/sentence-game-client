@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import Alert from "./Alert";
 
-export default function CountdownAlert({ time, finish }) {
-    const [countdown, setCountdown] = useState(time / 1000);
+export default function CountdownAlert({ timeout, finish }) {
+    const [countdown, setCountdown] = useState(timeout / 1000);
 
     useEffect(() => {
+        console.log(timeout);
         const interval = setInterval(() => {
             setCountdown((countdown) => {
-                if (countdown === 1) { finish() }
+                countdown === 1 && finish();
                 return (countdown - 1)
             });
         }, 1000)
@@ -15,7 +16,7 @@ export default function CountdownAlert({ time, finish }) {
         return (() => clearInterval(interval))
     }, [])
     return (
-        <Alert message={countdown} timeout={1000} finish={() => { }} />
+        <Alert message={countdown} timeoutout={1000} finish={() => { }} />
     )
 
 }

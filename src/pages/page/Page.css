@@ -8,8 +8,15 @@ section.page {
 }
 
 section.page.center {
-    display: flex;
+display: flex;
     justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    align-content: center;
+}
+section.page.top {
+    display: flex;
+    justify-content: start;
     align-items: center;
     flex-flow: column;
     align-content: center;
