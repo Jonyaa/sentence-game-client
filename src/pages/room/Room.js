@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSocket } from "../../hooks/useSocket";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useAlert } from "../../hooks/useAlert";
 import { useCountdown } from "../../hooks/useCountdown";
 import Cookies from "js-cookie";
@@ -8,11 +8,13 @@ import Cookies from "js-cookie";
 import Game from "../game/Game";
 import Lobby from "../lobby/Lobby";
 
-export default function Room({ }) {
+export default function Room() {
   //This component and alerts + countdowns + socket logic 
 
   const pin = Cookies.get('pin');
   const uid = Cookies.get('uid');
+  //Maybe a different way would be better seems pretty risky..
+  const isAdmin = useLocation().state.isAdmin
 
   //startInput and startGame are time varibales for intreacting with countdown 
   const [players, game,
@@ -36,7 +38,6 @@ export default function Room({ }) {
     }
     else {
       // Input is not empty, call alert, emit the input and wait for game start
-      console.log('not empty');
       setAlert({
         active: true,
         message: 'בוא נחכה לשאר הלירדים',
@@ -46,11 +47,15 @@ export default function Room({ }) {
       emit('input', input)
     }
   }
-  const onFinishTurn = () =>{
+  const onFinishTurn = () => {
     emit("next turn")
+  }
+  const onStartGame = () => {
+    emit("start");
   }
 
   useEffect(() => {
+    const pin = Cookies.get('pin');
     if (startInput) setCountdown({
       active: true,
       timeout: startInput,
@@ -58,6 +63,7 @@ export default function Room({ }) {
     });
     //Turn off alert and start game countdown
     if (startGame) {
+      // setStage('input');
       resetAlert();
       setCountdown({
         active: true,
@@ -65,14 +71,13 @@ export default function Room({ }) {
         onFinish: () => { setStage('0'); setStartGame(0) }
       })
     };
-  }, [startInput, startGame]);
-
+  }, [startInput, startGame, stage]);
 
   return (
     <>
       <AlertComponent />
       <CountdownComponent />
-      {stage ? <Game inputSubmit={onInputSubmit} finishTurn={onFinishTurn} data={game} stage={stage} uid={uid} /> : <Lobby players={players} pin={pin} />}
+      {stage ? <Game inputSubmit={onInputSubmit} finishTurn={onFinishTurn} data={game} stage={stage} uid={uid} /> : <Lobby players={players} pin={pin} isAdmin={isAdmin} startGame={onStartGame} />}
     </>
   );
-} 
+} ``
