@@ -18,7 +18,6 @@ export function useSocket() {
 
   useEffect(() => {
     socket.connect();
-
     //Messages from server
     const onConnect = () => setIsConnected(true);
     const onDisconnect = () => setIsConnected(false);
@@ -29,14 +28,19 @@ export function useSocket() {
     const onStartInput = timeout => {
       setStartInput(timeout);
     };
-    const onReconnect = (data) => {
-      console.log(data, ':  reconnect');
+    const onReconnect = ({ turn, data }) => {
+      console.log('reconnect','turn:',turn,'data:',data);
+      // setGame(data);
+      setStage(turn);
     }
     const onStartGame = ({ data, timeout }) => {
       setStartGame(timeout);
       setGame(data);
     }
-    const onNextTurn = (turn) => setStage(turn);
+    const onNextTurn = (turn) => {
+      console.log(turn, 'turn');
+      setStage(turn);
+    }
 
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);

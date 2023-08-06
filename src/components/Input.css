@@ -1,8 +1,9 @@
 .input-row {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 10px;
 }
-
 input {
   outline: none;
   border: none;
@@ -21,4 +22,9 @@ input {
 
 input[type="text"] {
   direction: rtl;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
 }

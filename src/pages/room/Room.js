@@ -71,7 +71,7 @@ export default function Room() {
         onFinish: () => { setStage('0'); setStartGame(0) }
       })
     };
-  }, [startInput, startGame, stage]);
+  }, [startInput, startGame]);
 
   return (
     <>
@@ -80,4 +80,4 @@ export default function Room() {
       {stage ? <Game inputSubmit={onInputSubmit} finishTurn={onFinishTurn} data={game} stage={stage} uid={uid} /> : <Lobby players={players} pin={pin} isAdmin={isAdmin} startGame={onStartGame} />}
     </>
   );
-} ``
+} 

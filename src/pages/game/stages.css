@@ -65,6 +65,7 @@
 .game-stage.endgame .sentence-list {
     margin-top: 20px;
     overflow-y: auto;
+    overflow-x: hidden;
     width: 100%;
 }
 

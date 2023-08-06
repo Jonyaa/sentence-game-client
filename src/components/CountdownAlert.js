@@ -5,7 +5,6 @@ export default function CountdownAlert({ timeout, finish }) {
     const [countdown, setCountdown] = useState(timeout / 1000);
 
     useEffect(() => {
-        console.log(timeout);
         const interval = setInterval(() => {
             setCountdown((countdown) => {
                 countdown === 1 && finish();

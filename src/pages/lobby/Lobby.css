@@ -13,3 +13,9 @@
     flex-direction: column;
     gap: 1em;
 }
+
+button.startGame {
+    position: absolute;
+    bottom: 2em;
+    width: 70%;
+}

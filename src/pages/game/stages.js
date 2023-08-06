@@ -11,7 +11,7 @@ function InputStage({ inputSubmit }) {
     <GameStage stageName="input">
       <h2>הכנס משפט</h2>
       <form >
-        <textarea rows={10} onChange={(e) => {setSentence(e.target.value)}}></textarea>
+        <textarea rows={10} onChange={(e) => { setSentence(e.target.value) }}></textarea>
         <Button onClick={() => inputSubmit(sentence)} type='button'>סיימת.י</Button>
       </form>
     </GameStage>
@@ -65,23 +65,14 @@ function EndRoundStage({ data }) {
 }
 
 function EndGameStage({ data }) {
-  // data: {name: [text1, text2], name: [text1, text2]...}
   return (
     <GameStage stageName={"endgame"}>
       <h2 className="title">נגמר המשחק!</h2>
       <div className="sentence-list">
-        {Object.keys(data).map((name) => {
-          return (
-            <div className="sentence" key={name}>
-              <h5>{name}</h5>
-              <ul>
-              {data[name].map((text, i) => {
-                return <li key={i}>"{text}"</li>;
-              })}
-              </ul>
-            </div>
-          );
-        })}
+        {data.map((turn, key) => <div className="sentence" key={key}>
+          <h5>{turn.text.writer}:</h5>
+          <h5>"{turn.text.body}"</h5>
+        </div>)}
       </div>
     </GameStage>
   );

@@ -33,9 +33,7 @@ function Game({ inputSubmit, finishTurn, data, stage, uid }) {
             return <MyTurnStage data={{ currentWriter: data[turn].text.writer, text: data[turn].text.body }} finishTurn={finishTurn} />
           case 'notMyTurn':
             return <NotMyTurnStage data={{ currentReader: data[turn].player, currentWriter: data[turn].text.writer }} />
-          case 'endRound':
-            return <EndRoundStage />
-          case 'engGame':
+          case 'endGame':
             return <EndGameStage data={data}/>
           default:
             return null

@@ -23,7 +23,7 @@ function Landing() {
       credentials: 'include',
     })
 
-    response.status === 200 ? navigate('/room') :
+    response.status === 200 ? navigate('/room', { state: { 'isAdmin': false } }) :
       response.status === 400 ? setAlert({
         active: true,
         message: "יא פיתה בשמנת אין חדר כזה 😂😂😂",

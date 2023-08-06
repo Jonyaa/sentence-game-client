@@ -12,9 +12,9 @@
 
 }
 
-h2 {
+.alert h2 {
     color: rgba(255, 255, 255, 1);
-    padding: .25em;
+    padding: 1em;
 
 }
 
