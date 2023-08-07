@@ -4,6 +4,8 @@ import "./fonts/AlenbiSans-Black.woff";
 import "./fonts/AlenbiSans-Bold.woff";
 import "./fonts/AlenbiSans-Regular.woff";
 import "./fonts/AlenbiSans-Light.woff";
+import "./fonts/SundayMono-BlackItalic.ttf";
+import "./fonts/SundayMono-Regular.ttf";
 
 import "./App.css";
 

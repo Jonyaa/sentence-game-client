@@ -14,8 +14,8 @@
 
 .alert h2 {
     color: rgba(255, 255, 255, 1);
-    padding: 1em;
-
+    width: 70%;
+    text-align: center;
 }
 
 .slide-in {

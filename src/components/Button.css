@@ -1,11 +1,10 @@
 button {
-    background-color: var(--clr-dark);
-    color: var(--clr-light);
+    background-color: var(--clr-primary);
+    color: var(--clr-secondary);
     outline: none;
     border: none;
     border-radius: 2px;
-    font-family: AlenbiSans;
-    font-weight: 500;
+    font-family: "SundayMono";
     font-size: 1.6em;
     padding: 8px;
 }

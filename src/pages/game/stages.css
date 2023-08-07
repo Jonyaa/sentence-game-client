@@ -12,8 +12,7 @@
     padding: 12px;
     box-sizing: border-box;
     background: white;
-    font-family: 'AlenbiSans';
-    font-weight: 300;
+    font-family: 'SundayMono';
     font-size: 1.2em;
     margin: 10px 0;
 }
@@ -76,6 +75,6 @@
 .game-stage.endgame li {
     list-style: none;
     margin-bottom: 8px;
-    color: var(--clr-dark);
+    color: var(--clr-primary);
     font-size: 1.2em;
 }

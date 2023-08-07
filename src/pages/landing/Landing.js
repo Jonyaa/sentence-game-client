@@ -36,12 +36,13 @@ function Landing() {
   return (
     <Page name="landing">
       <AlertComponent />
-      <h1>משחק המשפטים</h1>
+      <h1>משחק המשפטים הרשמי</h1>
       <form method="post" onSubmit={handleConnection}>
         <PinInput name="pin" type="number" label="צ׳ילבוטק" required />
-        <Input name="uid" type="text" label="שם" required />
-        <Button>התחברות</Button>
+        <Input name="uid" type="text" label='"שם"' required />
+        <Button>התחרבנות</Button>
       </form>
+      <a href="/admin">יצירת חדר</a>
     </Page>
   );
 }
