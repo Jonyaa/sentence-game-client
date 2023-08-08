@@ -33,6 +33,7 @@ function Admin() {
   return (
     <Page name={'landing'}>
       <AlertComponent />
+      <h2>צור צ׳ילבוטק</h2>
       <form method="post" onSubmit={handleCreateRoom}>
         <Input name="uid" type="text" label="שם" required />
         <Input name="selfRead" type="checkbox" label="קריאה עצמית" />

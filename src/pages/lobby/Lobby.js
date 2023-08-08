@@ -18,4 +18,4 @@ export default function Lobby({ players, pin, isAdmin, startGame }) {
     )
 }
 
-const Player = ({ name }) => <h5> •{name} </h5>
+const Player = ({ name }) => <h5>{name}</h5>

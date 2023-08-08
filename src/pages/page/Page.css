@@ -1,23 +1,26 @@
 section.page {
-    /* background-color: var(--clr-secondary); */
-    width: 100%;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
+  /* background-color: var(--clr-secondary); */
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 16%;
 }
 
 section.page.center {
-display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
-    align-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column;
+  align-content: center;
 }
+
 section.page.top {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-flow: column;
-    align-content: center;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-flow: column;
+  align-content: center;
 }

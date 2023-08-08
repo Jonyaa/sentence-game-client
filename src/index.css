@@ -1,4 +1,4 @@
-body {
+html, body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -16,7 +16,7 @@ h1, h2, h5, p, input {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 3.6em;
   font-weight: bold;
   font-style: italic;
   line-height: 90%;
@@ -25,14 +25,14 @@ h1 {
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 2em;
   font-weight: bold;
   margin: 0;
   margin-bottom: .2em;
 }
 
 h5 {
-  font-size: 2.2em;
+  font-size: 1.5em;
   font-weight: bold;
   margin: 0;
 }

@@ -5,7 +5,6 @@ h1 {
 .landing form {
   display: flex;
   flex-flow: column;
-  width: 70%;
 }
 
 button {

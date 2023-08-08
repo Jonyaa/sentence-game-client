@@ -4,14 +4,20 @@
   align-items: center;
   margin-bottom: 10px;
 }
+
+.input-row h5 {
+  padding-bottom: 2px;
+}
+
 input {
   outline: none;
   border: none;
   border-bottom: 2px solid var(--clr-primary);
+  border-radius: 0;
   background-color: transparent;
   padding: 2px;
   margin: 0;
-  font-size: 2em;
+  font-size: 1.5em;
   font-family: "AlenbiSans";
   margin-right: 20px;
   letter-spacing: 0.2em;
