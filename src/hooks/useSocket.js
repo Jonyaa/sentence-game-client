@@ -30,8 +30,8 @@ export function useSocket() {
     };
     const onReconnect = ({ turn, data }) => {
       console.log('reconnect','turn:',turn,'data:',data);
-      // setGame(data);
-      setStage(turn);
+      setGame(data);
+      setStage(turn.toString());
     }
     const onStartGame = ({ data, timeout }) => {
       setStartGame(timeout);
@@ -39,7 +39,7 @@ export function useSocket() {
     }
     const onNextTurn = (turn) => {
       console.log(turn, 'turn');
-      setStage(turn);
+      setStage(turn.toString());
     }
 
     socket.on('connect', onConnect);

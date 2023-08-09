@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSocket } from "../../hooks/useSocket";
 import { useLocation } from "react-router-dom";
 import { useAlert } from "../../hooks/useAlert";
@@ -13,8 +13,10 @@ export default function Room() {
 
   const pin = Cookies.get('pin');
   const uid = Cookies.get('uid');
-  //Maybe a different way would be better seems pretty risky..
-  const isAdmin = useLocation().state.isAdmin
+  //If navigated from somewhere -> set isAdmin to location state. if somehow got there by a different way set isAdmin to false
+  const location = useLocation();
+  const isAdmin = location.state ? location.state.isAdmin : false;
+
 
   //startInput and startGame are time varibales for intreacting with countdown 
   const [players, game,
