@@ -2,6 +2,7 @@ import "./Landing.css";
 
 import { useNavigate } from "react-router-dom";
 import { useAlert } from "../../hooks/useAlert";
+import { motion } from "framer-motion"
 
 import Page from "../page/Page";
 import Button from "../../components/Button";
@@ -36,7 +37,12 @@ function Landing() {
   return (
     <Page name="landing">
       <AlertComponent />
-      <h1>משחק המשפטים הרשמי</h1>
+      <motion.h1 animate={{
+        scale: [1, 1.6, 1.6, 1],
+        rotate: [0, 0, 720],
+        borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+        opacity: [1,0.2,1]
+      }} transition={{duration:3}}>משחק המשפטים הרשמי</motion.h1>
       <form method="post" onSubmit={handleConnection}>
         <PinInput name="pin" type="number" label="צ׳ילבוטק" required />
         <Input name="uid" type="text" label='"שם"' required />
